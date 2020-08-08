@@ -1,0 +1,21 @@
+{% extends 'shopsme/main.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+    <div class="container" style="border: solid blue" style="border-left:100px ;">
+        <div style="margin-top:100px; margin-bottom: 170px; margin-left:auto; margin-right: auto" id="center">
+            <div class=""><b>Login</b></div>
+            <br>
+            <form class="bootstrap4" method="post" action="{% url 'logincred' %}">
+            {% csrf_token %}
+            {{ loginform|crispy }}
+            {{ error1 }}
+            {{ error2 }}
+            {{ error3 }}
+            <input type="submit" value="SignIn" class="bg bg-primary"/>
+            <div class="pr"><a href="{% url 'password_reset_email' %}" class="pr">Forgot Password?</a></div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}

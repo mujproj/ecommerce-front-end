@@ -1,0 +1,21 @@
+{% extends 'shopsme/main.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+    <div class="container" style="border: solid blue" style="border-left:100px ;">
+        <div style="margin-top:50px; margin-bottom: 53px; margin-left:auto; margin-right: auto" id="center">
+            <div class=""><b>Register As A New User</b></div>
+            <br>
+            <form class="bootstrap4" method="POST" action = "{% url 'registersave' %}">
+            {% csrf_token %}
+            {{ registerform|crispy }}
+            <input type="submit" value="Register" class="bg bg-primary"/>
+            
+            <div style="color: darkred;">
+                {{ error }}
+            </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
